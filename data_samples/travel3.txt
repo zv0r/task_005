@@ -1,0 +1,3 @@
+Yaroslavl 0 0
+Kostroma 15 117
+Ivanovo 69 122
