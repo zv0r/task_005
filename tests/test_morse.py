@@ -78,21 +78,63 @@ if os.path.isfile(B_FILE_PATH):
         input_str = '1\nHeLlO'
         exp_output = '.... . .-.. .-.. ---'
         run_test_with_correct_input(input_str, exp_output)
-    
+
     def test_words_into_morse_1():
         input_str = '1\nHello world'
         exp_output = '.... . .-.. .-.. ---\t.-- --- .-. .-.. -..'
         run_test_with_correct_input(input_str, exp_output)
-    
+
     def test_words_into_morse_2():
         input_str = '1\nWe can do it'
         exp_output = '.-- .\t-.-. .- -.\t-.. ---\t.. -'
         run_test_with_correct_input(input_str, exp_output)
-    
-    def test_words_into_morse_():
+
+    def test_words_into_morse_3():
         input_str = '1\n20 000 Leagues Under The Sea'
-        exp_output = '..--- '
+        exp_output = ('..--- -----\t----- ----- -----\t.-.. . .- --. ..- . ...'
+                      '\t..- -. -.. . .-.\t- .... .\t... . .-')
         run_test_with_correct_input(input_str, exp_output)
+
+    def test_morse_into_letters_1():
+        run_test_with_correct_input('2\n..- .. --', 'VIM')
+
+    def test_morse_into_letters_2():
+        run_test_with_correct_input('2\n. ... -.-.', 'ESC')
+
+    def test_morse_into_letters_3():
+        run_test_with_correct_input('2\n.--- ----- ----.', 'J09')
+
+    def test_morse_into_letters_4():
+        run_test_with_correct_input('2\n....- ....', '4H')
+
+    def test_morse_into_letters_5():
+        run_test_with_correct_input('2\n..--- ..... --...', '257')
+
+    def test_morse_into_words_1():
+        input_str = '2\n.-- .\t-.-. .- -.\t-.. ---\t.. -'
+        exp_output = 'WE CAN DO IT'
+        run_test_with_correct_input(input_str, exp_output)
+
+    def test_morse_into_words_2():
+        input_str = '2\n.... . .-.. .-.. ---\t.-- --- .-. .-.. -..'
+        exp_output = 'HELLO WORLD'
+        run_test_with_correct_input(input_str, exp_output)
+
+    def test_morse_into_words_3():
+        input_str = '2\n..--- ....-\t.... --- ..- .-. ...'
+        exp_output = '24 HOURS'
+        run_test_with_correct_input(input_str, exp_output)
+
+    def test_morse_into_words_4():
+        input_str = '2\n.. -.\t.-- . . -.-\t--...\t-.. .- -.-- ...'
+        exp_output = 'IN WEEK 7 DAYS'
+        run_test_with_correct_input(input_str, exp_output)
+
+    def test_morse_into_words_5():
+        input_str = '2\n----- -----\t----- .----\t..... ----.'
+        exp_output = '00 01 59'
+        run_test_with_correct_input(input_str, exp_output)
+
 
 if __name__ == '__main__':
     pytest.main()
