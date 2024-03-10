@@ -1,0 +1,6 @@
+Yaroslavl 0 0
+Kostroma 15 117
+Ivanovo 69 122
+Vladimir 166 58
+NizhniyNovgorod 145 458
+Irkutsk 592 7149
