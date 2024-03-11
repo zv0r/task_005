@@ -36,5 +36,13 @@ def test_travel_3():
     assert result.returncode == 0
     assert result.stdout == 'Yaroslavl\nIvanovo\n4'
 
+def test_travel_4():
+    test_file_name = 'travel4.txt'
+    test_file_path = os.path.join(DATA_DIR, test_file_name)
+    shutil.copy(os.path.join(DATA_SAMPLES_DIR, test_file_name), test_file_path)
+    result = run([B_FILE_PATH], input=test_file_path, encoding='utf-8', stdout=PIPE)
+    assert result.returncode == 0
+    assert result.stdout == 'Somewhere\nNowhere\nSomewhere\n8'
+
 if __name__ == "__main__":
     pytest.main()
