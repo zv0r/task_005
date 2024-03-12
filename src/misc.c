@@ -10,6 +10,9 @@ void achtung() {
 }
 
 void append_string(char** string, char* append, char terminator) {
+    char* old_string = malloc(strlen(*string) + 1);
+    strcpy(old_string, *string);
     *string = realloc(*string, strlen(*string) + strlen(append) + 2);
-    sprintf(*string, "%s%s%c", *string, append, terminator);
+    sprintf(*string, "%s%s%c", old_string, append, terminator);
+    free(old_string);
 }

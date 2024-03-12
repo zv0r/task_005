@@ -31,13 +31,13 @@ FILE* load_file() {
 void ride(FILE* fp) {
     int total_ride_hours = 0;
     int ride_hours = 0;
-    int points_ride_hours = 0;
     char* result_string = calloc(1, sizeof(char));
     Point curr, prev;
 
     read_point(&prev, fp);
     append_string(&result_string, prev.name, '\n');
     while (read_point(&curr, fp)) {
+        int points_ride_hours;
         if ((points_ride_hours = ride_time(prev, curr, SPEED)) > MAX_RIDE_HOURS) {
             free(result_string);
             printf("Travel is impossible!");
