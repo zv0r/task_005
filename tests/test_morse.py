@@ -17,7 +17,7 @@ def run_test_with_error_input(input_str):
 
 def run_test_with_correct_input(input_str, expected_stdout):
     result = run([B_FILE_PATH], input=input_str, encoding='utf-8', stdout=PIPE)
-    assert result.returncode != 0
+    assert result.returncode == 0
     assert result.stdout == expected_stdout
 
 
