@@ -24,6 +24,4 @@ void ride(FILE* fp);
 
 int ride_time(Point point1, Point point2, int speed);
 
-void append_string(char** string, char* append);
-
 #endif

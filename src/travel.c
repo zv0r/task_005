@@ -28,11 +28,6 @@ FILE* load_file() {
     return fp;
 }
 
-void append_string(char** string, char* append) {
-    *string = realloc(*string, strlen(*string) + strlen(append) + 2);
-    sprintf(*string, "%s%s\n", *string, append);
-}
-
 void ride(FILE* fp) {
     int total_ride_hours = 0;
     int ride_hours = 0;
@@ -41,7 +36,7 @@ void ride(FILE* fp) {
     Point curr, prev;
 
     read_point(&prev, fp);
-    append_string(&result_string, prev.name);
+    append_string(&result_string, prev.name, '\n');
     while (read_point(&curr, fp)) {
         if ((points_ride_hours = ride_time(prev, curr, SPEED)) > MAX_RIDE_HOURS) {
             free(result_string);
@@ -51,14 +46,14 @@ void ride(FILE* fp) {
             total_ride_hours += points_ride_hours;
             ride_hours += points_ride_hours;
             if (ride_hours > MAX_RIDE_HOURS) {
-                append_string(&result_string, prev.name);
+                append_string(&result_string, prev.name, '\n');
                 total_ride_hours += RELAX_HOURS;
                 ride_hours = 0;
             }
             prev = curr;
         }
     }
-    append_string(&result_string, prev.name);
+    append_string(&result_string, prev.name, '\n');
     printf("%s", result_string);
     printf("%d", total_ride_hours);
 
