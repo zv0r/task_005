@@ -96,7 +96,7 @@ if os.path.isfile(B_FILE_PATH):
         run_test_with_correct_input(input_str, exp_output)
 
     def test_morse_into_letters_1():
-        run_test_with_correct_input('2\n..- .. --', 'VIM')
+        run_test_with_correct_input('2\n...- .. --', 'VIM')
 
     def test_morse_into_letters_2():
         run_test_with_correct_input('2\n. ... -.-.', 'ESC')
